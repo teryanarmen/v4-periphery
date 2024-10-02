@@ -47,7 +47,6 @@ contract RunLifecycle is Script {
 
     function run() public {
         // Additional helpers for interacting with the pool
-        // TODO: Instead of deploying just import the addresses
         // TODO: Add support for donate
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
