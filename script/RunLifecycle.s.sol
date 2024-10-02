@@ -15,13 +15,16 @@ import {Constants} from "@uniswap/v4-core/test/utils/Constants.sol";
 import {TickMath} from "@uniswap/v4-core/src/libraries/TickMath.sol";
 import {CurrencyLibrary, Currency} from "@uniswap/v4-core/src/types/Currency.sol";
 
-// Tests the full lifecycle of PoolManager. Deployed contracts are in script/parameters/sepolia.json, they can be redeployed with script/DeployLifecycleTestHelpers.s.sol which prints the addresses. The script can be modified to only deploy new tokens.
+// Tests the full lifecycle of PoolManager. Deployed contracts are in script/parameters/sepolia.json, they can be redeployed with script/DeployLifecycleTestHelpers.s.sol which prints the addresses. The script can be modified to only deploy new tokens. Run the script with 
+// forge script script/DeployLifecycleTestHelpers.s.sol  --rpc-url $SEPOLIA_RPC_URL --broadcast --slow --sender <address> --verify -vvvv
+
+// copy the contract addresses logged into sepolia.json 
 
 // to run:
-// forge script script/RunLifecycle.s.sol:RunLifecycle --rpc-url $SEPOLIA_RPC_URL --broadcast --slow --sender --sig "run" <address> -vvvv
+// forge script script/RunLifecycle.s.sol:RunLifecycle --rpc-url $SEPOLIA_RPC_URL --broadcast --slow --sender <address> --sig "run" -vvvv
 
 // to only run swap tests
-// forge script script/RunLifecycle.s.sol:RunLifecycle --rpc-url $SEPOLIA_RPC_URL --broadcast --slow --sender --sig "testSwap" <address> -vvvv
+// forge script script/RunLifecycle.s.sol:RunLifecycle --rpc-url $SEPOLIA_RPC_URL --broadcast --slow --sender <address> --sig "testSwap" -vvvv
 
 contract RunLifecycle is Script {
     // set from the json parameters
